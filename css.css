@@ -1,0 +1,145 @@
+.taskListContainter{
+  max-height: 900px; /* Adjust height as needed */
+  max-width: 500px; /* Adjust height as needed */
+  margin-top: 150px;
+  margin-left: 1400px;
+}
+#taskList {
+  background-color: {{taskListBackgroundColor}};
+  max-height: 900px;
+  overflow-y: hidden;
+}
+
+.taskListTitle{
+  font-family: '{{tasklistTitleFontName}}', sans-serif;
+  font-weight: {{tasklistTitleTextFontWeight}};
+  font-size: {{tasklistTitleTextFontSize}}px;
+  color: {{tasklistTitleColor}}; /* Top Color */
+  background-color: {{tasklistTitleBackgroundColor}};
+  margin-top: 0px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-top: {{taskCellPaddingTop}}px;
+  padding-bottom: {{taskCellPaddingBottom}}px;
+  padding-left: {{taskCellPaddingLeft}}px;
+  padding-right: {{taskCellPaddingRight}}px;
+  border-radius: {{taskCellBorderRadius}}px;
+}
+
+.userSection {
+  background-color: {{userSectionBackgroundColor}};
+  border-radius: {{userSectionBorderRadius}}px;
+}
+
+.userTitleContainer {
+  display: flex;
+  align-items: center;
+}
+
+.badge {
+  width: 20px; /* Adjust as needed */
+  height: 20px; /* Adjust as needed */
+  margin-right: 5px; /* Adjust as needed */
+  vertical-align: middle; /* Align with the user title */
+}
+.userTitle {
+  font-family: '{{mainTextFontName}}', sans-serif;
+  font-weight: bold;
+  font-size: {{mainTextFontSize}}px;
+  margin: 10px;
+}
+
+.taskItem {
+  top: {{mainTextfontHeight}}%;
+  line-height: {{mainTextFontSize}}px;
+  font-family: '{{mainTextFontName}}', sans-serif;
+  font-weight: {{mainTextFontWeight}};
+  font-size: {{mainTextFontSize}}px;
+  color: {{taskCellTextColor}}; /* Top Color */
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  background-color: {{taskBackgroundColor}};
+  padding-top: {{taskCellPaddingTop}}px;
+  padding-bottom: {{taskCellPaddingBottom}}px;
+  padding-left: {{taskCellPaddingLeft}}px;
+  padding-right: {{taskCellPaddingRight}}px;
+  border-width: {{taskCellBorderWidth}}px;
+  border-color: {{taskCellBorderColor}};
+  border-radius: {{taskCellBorderRadius}}px;
+}
+
+.completedTask {
+  background-color: rgba(55, 189, 79, 0.70);
+  text-decoration: line-through;
+}
+
+.taskItem input[type="checkbox"] {
+  margin-right: 10px;
+  width: {{checkboxSize}}px;
+  height: {{checkboxSize}}px;
+}
+
+.popupContainer {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1000;
+  display: none;
+}
+
+.popup {
+  background-color: rgba(55, 189, 79, 0.9);
+  color: #fff;
+  font-family: '{{mainTextFontName}}', sans-serif;
+  font-size: {{mainTextFontSize}}px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  animation: fadeIn 0.5s, fadeOut 0.5s 3.5s;
+}
+
+.popupContainer2 {
+  position: absolute;
+  top: 70%;
+  left: 40%;
+  z-index: 1000;
+  display: none;
+}
+
+.popup2 {
+  position: relative;
+  display: inline-block;
+  background-color: transparent; /* transparent */
+  color: #fff; /* Text color */
+  padding: 0;
+  animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+}
+
+.popup2 img {
+  width: 100%;
+}
+
+.popup2 .popupText {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-shadow: 1px 1px #4d4d4d;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
