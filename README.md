@@ -10,4 +10,4 @@ A jebaited token can be created with the following steps.
 - Where it says "Scopes", click on it and select botMsg an click on "Add Token"
 - Your token will appear right below
 
-please enter the jebaited token in the javascript line 12
+please enter the jebaited token in the field for the jebaited token. keep this token private
