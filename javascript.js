@@ -9,7 +9,7 @@ let globalTaskIdCounter = 1; // Counter for generating global task IDs
 - Where it says "Scopes", click on it and select botMsg an click on "Add Token"
 - Your token will appear right below
 */
-const jebaitedToken = '0123456789ABCDEFGHIJKLMN';
+const jebaitedToken = '{{jebaitedToken}}';
 
 // Function to add task
 function addTask(username, taskName, displayColor, badges) {
@@ -349,29 +349,29 @@ window.addEventListener('onEventReceived', function (obj) {
     if (messageParts[0] === '!taskCommands') {
       const response = "Commands: !task [task name] to add a task, !done to complete a task, !delete [number] to remove a task, !tasks to list tasks";
       const encodedMessage = encodeURIComponent(response);
-      fetch(`https://api.jebaited.net/botMsg/${jebaitedToken}/${encodedMessage}`);
+      fetch(`https://api.jebaited.net/botMsg/{jebaitedToken}/${encodedMessage}`);
     } else if (messageParts[0] === '!task' && messageParts.length >= 2) {
       const task = messageParts.slice(1).join(' ');
       const response = addTask(username, task, displayColor, badges);
       const encodedMessage = encodeURIComponent(response);
-      fetch(`https://api.jebaited.net/botMsg/${jebaitedToken}/${encodedMessage}`);
+      fetch(`https://api.jebaited.net/botMsg/{jebaitedToken}/${encodedMessage}`);
 
     } else if ((messageParts[0] === '!task' || messageParts[0] === '!tasks') && messageParts.length === 1) {
       const response = listTasks(username);
       const encodedMessage = encodeURIComponent(response);
-      fetch(`https://api.jebaited.net/botMsg/${jebaitedToken}/${encodedMessage}`);
+      fetch(`https://api.jebaited.net/botMsg/{jebaitedToken}/${encodedMessage}`);
 
     } else if (messageParts[0] === '!done') {
       const localId = parseInt(messageParts[1]);
       const response = markTaskAsDone(username, isNaN(localId) ? null : localId);
       const encodedMessage = encodeURIComponent(response);
-      fetch(`https://api.jebaited.net/botMsg/${jebaitedToken}/${encodedMessage}`);
+      fetch(`https://api.jebaited.net/botMsg/{jebaitedToken}/${encodedMessage}`);
 
     } else if (messageParts[0] === '!delete') {
       const localId = parseInt(messageParts[1]);
       const response = deleteTask(username, localId);
       const encodedMessage = encodeURIComponent(response);
-      fetch(`https://api.jebaited.net/botMsg/${jebaitedToken}/${encodedMessage}`);
+      fetch(`https://api.jebaited.net/botMsg/{jebaitedToken}/${encodedMessage}`);
 
     } else if (messageParts[0] === '!clear' && messageParts.length === 2 && isMod) {
       // Handle @username
@@ -379,7 +379,8 @@ window.addEventListener('onEventReceived', function (obj) {
       const usernameToClear = targetUsername;
       const response = clearTasks(usernameToClear, isMod);
       const encodedMessage = encodeURIComponent(response);
-      fetch(`https://api.jebaited.net/botMsg/${jebaitedToken}/${encodedMessage}`);
+      fetch(`https://api.jebaited.net/botMsg/{jebaitedToken}/${encodedMessage}`);
+
     }
   }
 });
