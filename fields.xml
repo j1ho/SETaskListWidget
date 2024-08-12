@@ -1,4 +1,16 @@
 {
+"jebaitedToken": {
+  "type": "password",
+  "label": "Jebaited Token (Do not share)",
+  "value": "",
+  "group": "Jebaited Token"
+},
+"jebaitedTokenInfo": {
+  "type": "textarea",
+  "label": "How to Create a Jebaited Token",
+  "value": "Instructions: - Go to jebaited.net - Authorize the application to connect to your StreamElements - Go to API tokens - Where it says 'Scopes', click on it and select 'botMsg' then click on 'Add Token' - Your token will appear right below",
+  "group": "Jebaited Token"
+},
 "checkboxSize": {
   "type": "number",
   "label": "Checkbox size",
