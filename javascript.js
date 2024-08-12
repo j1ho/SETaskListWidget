@@ -331,6 +331,23 @@ function smoothScroll(element, target, duration) {
 // Start smooth scrolling
 smoothScroll(taskList, taskList.scrollHeight - taskList.clientHeight, 5000);
 
+function getTopTaskers() {
+  const sortedUsers = [...userTasksMap.entries()].sort((a, b) => b[1].completedCount - a[1].completedCount);
+  const topTaskers = sortedUsers.slice(0, 5).map(([username, data]) => `${username}: ${data.completedCount} tasks`);
+  return `Top Taskers:\n${topTaskers.join('\n')}`;
+}
+
+function showTopTaskersPopup(message) {
+  const popup = document.getElementById('topTaskersPopup');
+  popup.textContent = message;
+  popup.style.display = 'block';
+
+  setTimeout(() => {
+    popup.style.display = 'none';
+    popup.textContent = ''; // Clear the content
+  }, 5000);
+}
+
 window.addEventListener('onEventReceived', function (obj) {
   if (obj.detail.listener == "message") {
     let data = obj.detail.event.data;
@@ -381,6 +398,10 @@ window.addEventListener('onEventReceived', function (obj) {
       const encodedMessage = encodeURIComponent(response);
       fetch(`https://api.jebaited.net/botMsg/{jebaitedToken}/${encodedMessage}`);
 
-    }
+    } else if (messageParts[0] === '!toptaskers') {
+      const response = getTopTaskers();
+      showPopup(response);
+      return;
+    }    
   }
 });
