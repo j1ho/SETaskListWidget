@@ -42,7 +42,7 @@ function addTask(username, taskName, displayColor, badges) {
 
     userTitleContainer.appendChild(userTitle);
     userSection.appendChild(userTitleContainer);
-    taskList.appendChild(userSection);
+    taskListBody.appendChild(userSection);
   }
 
   const userTaskData = userTasksMap.get(username);

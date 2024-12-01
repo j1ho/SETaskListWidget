@@ -1,12 +1,13 @@
 .taskListContainter{
   max-height: 900px; /* Adjust height as needed */
-  max-width: 500px; /* Adjust height as needed */
+  max-width: 500px; /* Adjust width as needed */
   margin-top: 150px;
   margin-left: 1400px;
 }
 #taskList {
   background-color: {{taskListBackgroundColor}};
-  max-height: 900px;
+  max-height: 900px; /* Adjust height as needed */
+  padding-bottom: 50px;
   overflow-y: hidden;
 }
 
@@ -27,9 +28,15 @@
   border-radius: {{taskCellBorderRadius}}px;
 }
 
+#taskListBody{
+  padding-bottom:30px;
+}
+
 .userSection {
   background-color: {{userSectionBackgroundColor}};
   border-radius: {{userSectionBorderRadius}}px;
+  padding:10px;
+  margin-bottom:5px;
 }
 
 .userTitleContainer {
@@ -47,7 +54,7 @@
   font-family: '{{mainTextFontName}}', sans-serif;
   font-weight: bold;
   font-size: {{mainTextFontSize}}px;
-  margin: 10px;
+  margin: 5px;
 }
 
 .taskItem {
@@ -115,7 +122,7 @@
   background-color: transparent; /* transparent */
   color: #fff; /* Text color */
   padding: 0;
-  animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+  animation: fadeIn 0.5s, fadeOut 0.5s 4.5s;
 }
 
 .popup2 img {
