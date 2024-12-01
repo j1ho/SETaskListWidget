@@ -271,7 +271,7 @@ function showPopup(message) {
     if (popupContainer.children.length === 0) {
       popupContainer.style.display = 'none';
     }
-  }, 3000);
+  }, 4000);
 }
 
 // Function to show the second popup with an image
@@ -298,7 +298,7 @@ function showPopup2(message, imageUrl) {
     if (popupContainer2.children.length === 0) {
       popupContainer2.style.display = 'none';
     }
-  }, 3000);
+  }, 5000);
 }
 // Smooth scrolling function
 function smoothScroll(element, target, duration) {
