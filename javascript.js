@@ -75,8 +75,7 @@ function addTask(username, taskName, displayColor, badges) {
   // Scroll to bottom
   taskList.scrollTop = taskList.scrollHeight;
 
-  // Send confirmation message
-  return "Task " + task.name + " added for " + username + ".";
+  return task;
 }
 
 // Function to update task count
@@ -368,8 +367,9 @@ window.addEventListener('onEventReceived', function (obj) {
       const encodedMessage = encodeURIComponent(response);
       fetch(`https://api.jebaited.net/botMsg/{jebaitedToken}/${encodedMessage}`);
     } else if (messageParts[0] === '!task' && messageParts.length >= 2) {
-      const task = messageParts.slice(1).join(' ');
-      const response = addTask(username, task, displayColor, badges);
+      const taskName = messageParts.slice(1).join(' ');
+      const task = addTask(username, taskName, displayColor, badges);
+      const response = "Task " + task.name + " added for " + username + ".";
       const encodedMessage = encodeURIComponent(response);
       fetch(`https://api.jebaited.net/botMsg/{jebaitedToken}/${encodedMessage}`);
 
@@ -380,6 +380,14 @@ window.addEventListener('onEventReceived', function (obj) {
 
     } else if (messageParts[0] === '!done') {
       const localId = parseInt(messageParts[1]);
+      const response = markTaskAsDone(username, isNaN(localId) ? null : localId);
+      const encodedMessage = encodeURIComponent(response);
+      fetch(`https://api.jebaited.net/botMsg/{jebaitedToken}/${encodedMessage}`);
+
+    } else if (messageParts[0] === '!log' && messageParts.length >= 2) {
+      const taskName = messageParts.slice(1).join(' ');
+      const task = addTask(username, taskName, displayColor, badges);
+      const localId = task.localId;
       const response = markTaskAsDone(username, isNaN(localId) ? null : localId);
       const encodedMessage = encodeURIComponent(response);
       fetch(`https://api.jebaited.net/botMsg/{jebaitedToken}/${encodedMessage}`);
