@@ -373,7 +373,7 @@ window.addEventListener('onEventReceived', function (obj) {
     const isMod = data.tags.mod === '1' || data.tags.badges.includes("broadcaster/1");
 
     if (messageParts[0].toLowerCase() === '!taskcommands') {
-      const response = "Commands: !task [task name] to add a task, !done to complete a task, !delete [number] to remove a task, !tasks to list tasks";
+      const response = "Commands: !task [task name] to add a task, !done to complete a task, !delete [number] to remove a task, !tasks to list tasks, !log [task] to log completed tasks";
       sendBotMessage(response);
     } else if (messageParts[0] === '!task' && messageParts.length >= 2) {
       const taskName = messageParts.slice(1).join(' ');
