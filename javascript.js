@@ -46,7 +46,7 @@ function addTask(username, taskName, displayColor, badges) {
   }
 
   const userTaskData = userTasksMap.get(username);
-  const localId = userTaskData.localIdCounter++;
+  const localId = userTaskData.localIdCounter + 1;
   const task = { globalId: globalTaskIdCounter++, localId: localId, name: taskName, done: false };
 
   userTaskData.tasks.push(task);
@@ -83,6 +83,7 @@ function updateTaskCount(username) {
   const userTaskData = userTasksMap.get(username);
   const totalCount = userTaskData.tasks.length;
   const completedCount = userTaskData.tasks.filter(task => task.done).length;
+  userTaskData.localIdCounter = totalCount;
   userTaskData.completedCount = completedCount; // Ensure completedCount is updated correctly
   const userTitle = document.getElementById(`userTitle-${username}`);
   userTitle.textContent = `${username} (${completedCount}/${totalCount})`;
@@ -208,6 +209,20 @@ function deleteTask(username, localId) {
   const taskItem = document.getElementById(`task-${username}-${localId}`);
   if (taskItem) {
     taskItem.remove();
+  }
+  
+  // Renumber tasks
+  for(var i = 0; i < userTaskData.tasks.length; i++){
+    userTaskData.tasks[i].localId = i+1;
+    let editTaskItemHtml = document.getElementById("task-"+username+"-"+(i+1));
+    if(editTaskItemHtml == null){
+      editTaskItemHtml = document.getElementById("task-"+username+"-"+(i+2))
+    }
+    if(editTaskItemHtml != null){
+      editTaskItemHtml.removeAttribute("id");
+      editTaskItemHtml.setAttribute("id", "task-"+username+"-"+(i+1));
+      editTaskItemHtml.querySelector("span").textContent = (i+1)+". "+userTaskData.tasks[i].name;
+    }
   }
 
   // Update task count
