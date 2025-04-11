@@ -212,18 +212,7 @@ function deleteTask(username, localId) {
   }
   
   // Renumber tasks
-  for(var i = 0; i < userTaskData.tasks.length; i++){
-    userTaskData.tasks[i].localId = i+1;
-    let editTaskItemHtml = document.getElementById("task-"+username+"-"+(i+1));
-    if(editTaskItemHtml == null){
-      editTaskItemHtml = document.getElementById("task-"+username+"-"+(i+2))
-    }
-    if(editTaskItemHtml != null){
-      editTaskItemHtml.removeAttribute("id");
-      editTaskItemHtml.setAttribute("id", "task-"+username+"-"+(i+1));
-      editTaskItemHtml.querySelector("span").textContent = (i+1)+". "+userTaskData.tasks[i].name;
-    }
-  }
+  renumberTasksFrom(username, taskIndex);
 
   // Update task count
   updateTaskCount(username);
@@ -235,6 +224,32 @@ function deleteTask(username, localId) {
 
   return `${task.name} deleted for ${username}.`;
 }
+
+function renumberTasksFrom(username, startIndex) {
+  const userTaskData = userTasksMap.get(username);
+
+  for (let i = startIndex; i < userTaskData.tasks.length; i++) {
+    const oldLocalId = userTaskData.tasks[i].localId;
+    const newLocalId = i + 1;
+
+    const oldId = `task-${username}-${oldLocalId}`;
+    const newId = `task-${username}-${newLocalId}`;
+
+    // Update internal localId
+    userTaskData.tasks[i].localId = newLocalId;
+
+    // Update DOM element
+    const taskItem = document.getElementById(oldId);
+    if (taskItem) {
+      taskItem.id = newId;
+      const span = taskItem.querySelector("span");
+      if (span) {
+        span.textContent = `${newLocalId}. ${userTaskData.tasks[i].name}`;
+      }
+    }
+  }
+}
+
 
 // Function to clear all tasks for a user
 function clearTasks(username, isMod) {
