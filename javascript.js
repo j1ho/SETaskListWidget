@@ -14,7 +14,7 @@ const jebaitedToken = '{{jebaitedToken}}';
 // Function to add task
 function addTask(username, taskName, displayColor, badges) {
   if (!userTasksMap.has(username)) {
-    userTasksMap.set(username, { tasks: [], localIdCounter: 1, completedCount: 0 });
+    userTasksMap.set(username, { tasks: [], localIdCounter: 0, completedCount: 0 });
 
     // Create user section
     const userSection = document.createElement('div');
