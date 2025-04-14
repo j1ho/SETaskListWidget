@@ -142,10 +142,10 @@ function markTaskAsDone(username, localId) {
     }
   }
 
-  const task = tasks.find(task => task.localId === localId);
+  const task = tasks.find(task => task.localId === localId && !task.done);
 
   if (!task) {
-    return `Task with ID ${localId} not found for ${username}.`;
+    return `Task with ID ${localId} not found or already completed for ${username}.`;
   }
 
   task.done = true;
