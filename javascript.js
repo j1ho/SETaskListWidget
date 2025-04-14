@@ -481,15 +481,18 @@ function generateTestTasks() {
   };
 
   const testUsers = [
-    { name: "Alice", color: "#FF4A80", badges: [MOD_BADGE] },
-    { name: "Bob", color: "#00BBF9", badges: [VIP_BADGE] },
-    { name: "Charlie", color: "#9B5DE5", badges: [] },
+    { name: "flawer", color: "#ebb434", badges: [MOD_BADGE] },
+    { name: "Sarah", color: "#00BBF9", badges: [VIP_BADGE] },
+    { name: "JungDKook", color: "#9B5DE5", badges: [] },
   ];
+  clearTasks(flawer, true);
+  clearTasks(Sarah, true);
+  clearTasks(JungDKook, true);
 
   const tasksPerUser = [
-    ["Clean desk", "Sort books", "Take a break"],
-    ["Organize emails", "Team sync", "Plan sprint"],
-    ["Update resume", "Apply to jobs", "Practice Leetcode"],
+    ["clean desk", "take a nap", "mod discord drama", "take exam"],
+    ["Organize emails", "Team sync", "Plan sprint", "Business Stuff", "Worship Emmy"],
+    ["Update resume", "Apply to jobs", "Practice Leetcode", "Duolingo", "Cry (in Unemployed)"],
   ];
 
   testUsers.forEach((user, index) => {
@@ -499,8 +502,10 @@ function generateTestTasks() {
   });
 
   // Mark some tasks as completed
-  markTaskAsDone("Alice", 2);   // Mod
-  markTaskAsDone("Bob", 1);     // VIP
-  markTaskAsDone("Charlie", 3); // No badge
+  markTaskAsDone("flawer", 2);   // Mod
+  for(var i = 1; i <= 5; i++){
+    markTaskAsDone("Sarah", i);     // VIP
+  }
+  markTaskAsDone("JungDKook", 3); // No badge
 }
 
