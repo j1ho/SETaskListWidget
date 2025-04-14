@@ -400,7 +400,9 @@ window.addEventListener('onEventReceived', function (obj) {
     const username = data.displayName;
     const displayColor = data.displayColor;
     const badges = data.badges;
-    const isMod = data.tags.mod === '1' || data.tags.badges.includes("broadcaster/1");
+    const isMod =
+      data?.tags?.mod === '1' ||
+      (typeof data?.tags?.badges === 'string' && data.tags.badges.includes('broadcaster/1'));
 
     if (messageParts[0].toLowerCase() === '!taskcommands') {
       const response = "Commands: !task [task name] to add a task, !done to complete a task, !delete [number] to remove a task, !tasks to list tasks, !log [task] to log completed tasks";
@@ -444,5 +446,63 @@ window.addEventListener('onEventReceived', function (obj) {
       showPopup(response);
       return;
     }    
+  } else if (obj.detail.listener == "widget-button" || obj.detail.listener == "event:test") {
+    const event = obj.detail.event;
+    onButton(event);
+    return;
+  } else {
+    return;
   }
 });
+
+function onButton(event) {
+  console.log("onButton Entered");
+  const { field } = event;
+  console.log("field: "+field);
+
+  switch (field) {
+    case 'createTestTasks':
+      generateTestTasks()
+      break;
+    default:
+      return;
+  }
+}
+
+function generateTestTasks() {
+  const MOD_BADGE = {
+    type: "moderator",
+    url: "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/3",
+    description: "Moderator"
+  };
+
+  const VIP_BADGE = {
+    type: "vip",
+    url: "https://static-cdn.jtvnw.net/badges/v1/b817aba4-fad8-49e2-b88a-7cc744dfa6ec/3",
+    description: "VIP"
+  };
+
+  const testUsers = [
+    { name: "Alice", color: "#FF4A80", badges: [MOD_BADGE] },
+    { name: "Bob", color: "#00BBF9", badges: [VIP_BADGE] },
+    { name: "Charlie", color: "#9B5DE5", badges: [] },
+  ];
+
+  const tasksPerUser = [
+    ["Clean desk", "Sort books", "Take a break"],
+    ["Organize emails", "Team sync", "Plan sprint"],
+    ["Update resume", "Apply to jobs", "Practice Leetcode"],
+  ];
+
+  testUsers.forEach((user, index) => {
+    tasksPerUser[index].forEach(taskName => {
+      addTask(user.name, taskName, user.color, user.badges);
+    });
+  });
+
+  // Mark some tasks as completed
+  markTaskAsDone("Alice", 2);   // Mod
+  markTaskAsDone("Bob", 1);     // VIP
+  markTaskAsDone("Charlie", 3); // No badge
+}
+

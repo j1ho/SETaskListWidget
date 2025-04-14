@@ -1,4 +1,9 @@
 {
+"createTestTasks": {
+  "label": "Create Test Tasks",
+  "group": "Preview",
+  "type": "button"
+},
 "jebaitedToken": {
   "type": "password",
   "label": "Jebaited Token (Do not share)",
