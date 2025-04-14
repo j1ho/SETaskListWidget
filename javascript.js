@@ -486,9 +486,10 @@ function generateTestTasks() {
     { name: "JungDKook", color: "#9B5DE5", badges: [] },
     { name: "liya", color: "#ffffff", badges: [MOD_BADGE] },
   ];
-  clearTasks(flawer, true);
-  clearTasks(Sarah, true);
-  clearTasks(JungDKook, true);
+  clearTasks("flawer", true);
+  clearTasks("Sarah", true);
+  clearTasks("JungDKook", true);
+  clearTasks("liya", true);
 
   const tasksPerUser = [
     ["clean desk", "take a nap", "mod discord drama", "take exam"],
