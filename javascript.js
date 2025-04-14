@@ -456,9 +456,7 @@ window.addEventListener('onEventReceived', function (obj) {
 });
 
 function onButton(event) {
-  console.log("onButton Entered");
   const { field } = event;
-  console.log("field: "+field);
 
   switch (field) {
     case 'createTestTasks':
