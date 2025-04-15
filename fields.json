@@ -74,13 +74,13 @@
 },
 "taskListMarginTop": {
   "type": "number",
-  "label": "Task List Max Height",
+  "label": "Margin Top",
   "value": 150,
   "group": "Task List Config"
 },
 "taskListMarginLeft": {
   "type": "number",
-  "label": "Task List Max Width",
+  "label": "Margin Left",
   "value": 1400,
   "group": "Task List Config"
 },
