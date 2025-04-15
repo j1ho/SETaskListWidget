@@ -188,6 +188,18 @@
   "value": 10,
   "group":"Task Cell Config"
 },
+"doneTaskFeedToggle": {
+  "type": "checkbox",
+  "label": "Show Done Task Feed?",
+  "value": true,
+  "group": "Task Done Feed"
+},
+"aceToggle": {
+  "type": "checkbox",
+  "label": "Show Ace Popup?",
+  "value": true,
+  "group": "ACE"
+},
   "soundFile": {
   "type": "sound-input",
   "label": "Sound file",

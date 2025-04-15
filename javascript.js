@@ -163,7 +163,9 @@ function markTaskAsDone(username, localId) {
   }
 
   // Show popup
-  showPopup(`${task.name} marked as done for ${username}.`);
+  if('{{doneTaskFeedToggle}}' === 'true'){
+    showPopup(`${task.name} marked as done for ${username}.`);
+  }
 
   // Update task count
   updateTaskCount(username);
@@ -177,7 +179,8 @@ function markTaskAsDone(username, localId) {
 // Function to check if a user has completed 5 tasks
 function checkCompletedTasks(username) {
   const userTaskData = userTasksMap.get(username);
-  if (userTaskData.completedCount % 5 === 0) {
+  const aceToggle = '{{aceToggle}}' === 'true';
+  if (aceToggle && userTaskData.completedCount % 5 === 0) {
     showPopup2(`Congratulations ${username}! You have completed ${userTaskData.completedCount} tasks!`,'{{aceBanner}}');
     playAudio('{{soundFile}}','{{soundVolume}}');
   }
