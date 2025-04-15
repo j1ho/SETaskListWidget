@@ -31,13 +31,13 @@
 "mainTextFontName": {
   "type": "googleFont",    
   "label": "Text Font name",
-  "value": "Oswald",
+  "value": "Roboto",
   "group":"Text Config"
 },
 "mainTextFontSize": {
   "type": "number",
   "label": "Text Font size",
-  "value": 15,
+  "value": 20,
   "group":"Text Config"
 },
 "mainTextFontWeight": {
@@ -57,7 +57,7 @@
   "taskListBackgroundColor": {
   "type": "colorpicker",
   "label": "Tasklist Background Colour",
-  "value": "rgba(146, 145, 145, 0.3)",
+  "value": "rgba(111, 111, 111, 0)",
   "group":"Task List Config"
 },
 "taskListMaxHeight": {
@@ -87,7 +87,7 @@
   "userSectionBackgroundColor": {
   "type": "colorpicker",
   "label": "Tasklist Background Colour",
-  "value": "rgba(146, 145, 145, 0.3)",
+  "value": "rgba(0, 0, 0, 0.5)",
   "group":"User Section Config"
 },
   "userSectionBorderRadius": {
@@ -99,25 +99,25 @@
 "tasklistTitleBackgroundColor": {
   "type": "colorpicker",
   "label": "Tasklist Title Background Colour",
-  "value": "rgba(146, 145, 145, 0.9)",
+  "value": "rgba(101, 109, 236, 0.9)",
   "group":"Task List Title Config"
 },
   "tasklistTitleColor": {
   "type": "colorpicker",
   "label": "Text Color",
-  "value": "#111111",
+  "value": "rgb(255, 254, 254)",
   "group":"Task List Title Config"
 },
 "tasklistTitleFontName": {
   "type": "googleFont",    
   "label": "Text Font name",
-  "value": "Oswald",
+  "value": "Roboto",
   "group":"Task List Title Config"
 },
 "tasklistTitleFontSize": {
   "type": "number",
   "label": "Text Font size",
-  "value": 15,
+  "value": 20,
   "group":"Task List Title Config"
 },
 "tasklistTitleFontWeight": {
@@ -137,13 +137,13 @@
 "taskCellTextColor": {
   "type": "colorpicker",
   "label": "Task Text Color",
-  "value": "rgba(146, 145, 145, 0)",
+  "value": "rgb(255, 254, 254)",
   "group":"Task Cell Config"
 },
 "taskBackgroundColor": {
   "type": "colorpicker",
   "label": "Task Cell Background Colour",
-  "value": "rgba(146, 145, 145, 0.5)",
+  "value": "rgba(127, 127, 127, 0.7)",
   "group":"Task Cell Config"
 },
 "taskCellBorderRadius": {
@@ -179,7 +179,7 @@
 "taskCellPaddingLeft": {
   "type": "number",
   "label": "Task Cell Padding Left",
-  "value": 10,
+  "value": 5,
   "group":"Task Cell Config"
 },
   "taskCellPaddingRight": {
@@ -192,7 +192,7 @@
   "type": "sound-input",
   "label": "Sound file",
   "value": "",
-  "group":"ACE Sound"  
+  "group":"ACE"  
 },
 "soundVolume": {
   "type": "slider",
@@ -201,12 +201,12 @@
   "min": 0,
   "max": 100,
   "steps": 1,
-  "group":"ACE Sound"  
+  "group":"ACE"  
 },
 "aceBanner": {
   "type": "image-input",
   "label": "ACE Banner Image",
   "value": "",
-  "group":"ACE Popup"  
+  "group":"ACE"  
 }
 }
