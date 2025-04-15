@@ -138,7 +138,13 @@
   "type": "colorpicker",
   "label": "Task Text Color",
   "value": "rgb(255, 254, 254)",
-  "group":"Task Cell Config"
+  "group": "Task Cell Config"
+},
+"completedTaskBackgroundColor": {
+  "type": "colorpicker",
+  "label": "Completed Task Background Color",
+  "value": "rgba(55, 189, 79, 0.9)",
+  "group": "Task Cell Config"
 },
 "taskBackgroundColor": {
   "type": "colorpicker",
@@ -192,6 +198,18 @@
   "type": "checkbox",
   "label": "Show Done Task Feed?",
   "value": true,
+  "group": "Task Done Feed"
+},
+"doneFeedBackgroundColor": {
+  "type": "colorpicker",
+  "label": "Done Feed Background Colour",
+  "value": "rgba(55, 189, 79, 0.9)",
+  "group": "Task Done Feed"
+},
+"doneFeedTextColor": {
+  "type": "colorpicker",
+  "label": "Done Feed Text Colour",
+  "value": "#fff",
   "group": "Task Done Feed"
 },
 "aceToggle": {

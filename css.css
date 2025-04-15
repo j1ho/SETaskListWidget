@@ -6,7 +6,7 @@
 }
 #taskList {
   background-color: {{taskListBackgroundColor}};
-  max-height: 900px; /* Adjust height as needed */
+  max-height: 900px;
   padding-bottom: 50px;
   overflow-y: hidden;
 }
@@ -72,13 +72,14 @@
   padding-bottom: {{taskCellPaddingBottom}}px;
   padding-left: {{taskCellPaddingLeft}}px;
   padding-right: {{taskCellPaddingRight}}px;
+  border-style: solid;
   border-width: {{taskCellBorderWidth}}px;
   border-color: {{taskCellBorderColor}};
   border-radius: {{taskCellBorderRadius}}px;
 }
 
 .completedTask {
-  background-color: rgba(55, 189, 79, 0.70);
+  background-color: {{completedTaskBackgroundColor}};
   text-decoration: line-through;
 }
 
@@ -97,8 +98,8 @@
 }
 
 .popup {
-  background-color: rgba(55, 189, 79, 0.9);
-  color: #fff;
+  background-color: {{doneFeedBackgroundColor}};
+  color: {{doneFeedTextColor}};
   font-family: '{{mainTextFontName}}', sans-serif;
   font-size: {{mainTextFontSize}}px;
   padding: 10px;
