@@ -6,7 +6,7 @@
 }
 #taskList {
   background-color: {{taskListBackgroundColor}};
-  max-height: 900px;
+  max-height: {{taskListMaxHeight}}px;
   padding-bottom: 50px;
   overflow-y: hidden;
 }
