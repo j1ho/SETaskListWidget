@@ -11,3 +11,6 @@ A jebaited token can be created with the following steps.
 - Your token will appear right below
 
 please enter the jebaited token in the field for the jebaited token. keep this token private
+
+Setup/Demo Video
+https://youtu.be/RjooJO5cNB0 
