@@ -60,6 +60,30 @@
   "value": "rgba(146, 145, 145, 0.3)",
   "group":"Task List Config"
 },
+"taskListMaxHeight": {
+  "type": "number",
+  "label": "Task List Max Height",
+  "value": 900,
+  "group": "Task List Config"
+},
+"taskListMaxWidth": {
+  "type": "number",
+  "label": "Task List Max Width",
+  "value": 500,
+  "group": "Task List Config"
+},
+"taskListMarginTop": {
+  "type": "number",
+  "label": "Task List Max Height",
+  "value": 150,
+  "group": "Task List Config"
+},
+"taskListMarginLeft": {
+  "type": "number",
+  "label": "Task List Max Width",
+  "value": 1400,
+  "group": "Task List Config"
+},
   "userSectionBackgroundColor": {
   "type": "colorpicker",
   "label": "Tasklist Background Colour",
