@@ -1,8 +1,8 @@
 .taskListContainter{
-  max-height: 900px; /* Adjust height as needed */
-  max-width: 500px; /* Adjust width as needed */
-  margin-top: 150px;
-  margin-left: 1400px;
+  max-height: {{taskListMaxHeight}}px; /* Adjust height as needed */
+  max-width: {{taskListMaxWidth}}px; /* Adjust width as needed */
+  margin-top: {{taskListMarginTop}}px;
+  margin-left: {{taskListMarginLeft}}px;
 }
 #taskList {
   background-color: {{taskListBackgroundColor}};
