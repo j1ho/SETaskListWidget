@@ -1,242 +1,242 @@
 {
-"createTestTasks": {
-  "label": "Create Test Tasks",
-  "group": "Preview",
-  "type": "button"
-},
-"jebaitedToken": {
-  "type": "password",
-  "label": "Jebaited Token (Do not share)",
-  "value": "",
-  "group": "Jebaited Token"
-},
-"jebaitedTokenInfo": {
-  "type": "textarea",
-  "label": "How to Create a Jebaited Token",
-  "value": "Instructions: - Go to jebaited.net - Authorize the application to connect to your StreamElements - Go to API tokens - Where it says 'Scopes', click on it and select 'botMsg' then click on 'Add Token' - Your token will appear right below",
-  "group": "Jebaited Token"
-},
-"checkboxSize": {
-  "type": "number",
-  "label": "Checkbox size",
-  "value": 15,
-  "group":"Checkbox Config"
-},
-"mainTextColor": {
-  "type": "colorpicker",
-  "label": "Text Color",
-  "value": "#111111",
-  "group":"Text Config"
-},
-"mainTextFontName": {
-  "type": "googleFont",    
-  "label": "Text Font name",
-  "value": "Roboto",
-  "group":"Text Config"
-},
-"mainTextFontSize": {
-  "type": "number",
-  "label": "Text Font size",
-  "value": 20,
-  "group":"Text Config"
-},
-"mainTextFontWeight": {
-  "label": "Text Font Weight",
-  "type": "dropdown",
-  "value": "400",
-  "options": {
-    "100": "Thin (100)",
-    "300": "Light (300)",
-    "400": "Regular (400)",
-    "500": "Medium (500)",
-    "700": "Bold (700)",
-    "900": "Black (900)"
+  "createTestTasks": {
+    "label": "Create Test Tasks",
+    "group": "Preview",
+    "type": "button"
   },
-  "group":"Text Config"
-},
+  "jebaitedToken": {
+    "type": "password",
+    "label": "Jebaited Token (Do not share)",
+    "value": "",
+    "group": "Jebaited Token"
+  },
+  "jebaitedTokenInfo": {
+    "type": "textarea",
+    "label": "How to Create a Jebaited Token",
+    "value": "Instructions: - Go to jebaited.net - Authorize the application to connect to your StreamElements - Go to API tokens - Where it says 'Scopes', click on it and select 'botMsg' then click on 'Add Token' - Your token will appear right below",
+    "group": "Jebaited Token"
+  },
+  "checkboxSize": {
+    "type": "number",
+    "label": "Checkbox size",
+    "value": 15,
+    "group": "Checkbox Config"
+  },
+  "mainTextColor": {
+    "type": "colorpicker",
+    "label": "Text Color",
+    "value": "#111111",
+    "group": "Text Config"
+  },
+  "mainTextFontName": {
+    "type": "googleFont",
+    "label": "Text Font name",
+    "value": "Roboto",
+    "group": "Text Config"
+  },
+  "mainTextFontSize": {
+    "type": "number",
+    "label": "Text Font size",
+    "value": 20,
+    "group": "Text Config"
+  },
+  "mainTextFontWeight": {
+    "label": "Text Font Weight",
+    "type": "dropdown",
+    "value": "400",
+    "options": {
+      "100": "Thin (100)",
+      "300": "Light (300)",
+      "400": "Regular (400)",
+      "500": "Medium (500)",
+      "700": "Bold (700)",
+      "900": "Black (900)"
+    },
+    "group": "Text Config"
+  },
   "taskListBackgroundColor": {
-  "type": "colorpicker",
-  "label": "Tasklist Background Colour",
-  "value": "rgba(111, 111, 111, 0)",
-  "group":"Task List Config"
-},
-"taskListMaxHeight": {
-  "type": "number",
-  "label": "Task List Max Height",
-  "value": 900,
-  "group": "Task List Config"
-},
-"taskListMaxWidth": {
-  "type": "number",
-  "label": "Task List Max Width",
-  "value": 500,
-  "group": "Task List Config"
-},
-"taskListMarginTop": {
-  "type": "number",
-  "label": "Margin Top",
-  "value": 150,
-  "group": "Task List Config"
-},
-"taskListMarginLeft": {
-  "type": "number",
-  "label": "Margin Left",
-  "value": 1400,
-  "group": "Task List Config"
-},
-  "userSectionBackgroundColor": {
-  "type": "colorpicker",
-  "label": "Tasklist Background Colour",
-  "value": "rgba(0, 0, 0, 0.5)",
-  "group":"User Section Config"
-},
-  "userSectionBorderRadius": {
-  "type": "number",
-  "label": "Task Cell Border Radius",
-  "value": 10,
-  "group":"User Section Config"
-},
-"tasklistTitleBackgroundColor": {
-  "type": "colorpicker",
-  "label": "Tasklist Title Background Colour",
-  "value": "rgba(101, 109, 236, 0.9)",
-  "group":"Task List Title Config"
-},
-  "tasklistTitleColor": {
-  "type": "colorpicker",
-  "label": "Text Color",
-  "value": "rgb(255, 254, 254)",
-  "group":"Task List Title Config"
-},
-"tasklistTitleFontName": {
-  "type": "googleFont",    
-  "label": "Text Font name",
-  "value": "Roboto",
-  "group":"Task List Title Config"
-},
-"tasklistTitleFontSize": {
-  "type": "number",
-  "label": "Text Font size",
-  "value": 20,
-  "group":"Task List Title Config"
-},
-"tasklistTitleFontWeight": {
-  "label": "Text Font Weight",
-  "type": "dropdown",
-  "value": "400",
-  "options": {
-    "100": "Thin (100)",
-    "300": "Light (300)",
-    "400": "Regular (400)",
-    "500": "Medium (500)",
-    "700": "Bold (700)",
-    "900": "Black (900)"
+    "type": "colorpicker",
+    "label": "Tasklist Background Colour",
+    "value": "rgba(111, 111, 111, 0)",
+    "group": "Task List Config"
   },
-  "group":"Task List Title Config"
-},
-"taskCellTextColor": {
-  "type": "colorpicker",
-  "label": "Task Text Color",
-  "value": "rgb(255, 254, 254)",
-  "group": "Task Cell Config"
-},
-"completedTaskBackgroundColor": {
-  "type": "colorpicker",
-  "label": "Completed Task Background Color",
-  "value": "rgba(55, 189, 79, 0.9)",
-  "group": "Task Cell Config"
-},
-"taskBackgroundColor": {
-  "type": "colorpicker",
-  "label": "Task Cell Background Colour",
-  "value": "rgba(127, 127, 127, 0.7)",
-  "group":"Task Cell Config"
-},
-"taskCellBorderRadius": {
-  "type": "number",
-  "label": "Task Cell Border Radius",
-  "value": 10,
-  "group":"Task Cell Config"
-},
-"taskCellBorderWidth": {
-  "type": "number",
-  "label": "Task Cell Border Width (px)",
-  "value": 0,
-  "group":"Task Cell Config"
-},
-"taskCellBorderColor": {
-  "type": "colorpicker",
-  "label": "Task Cell Border Color",
-  "value": "rgba(146, 145, 145, 0)",
-  "group":"Task Cell Config"
-},
-"taskCellPaddingTop": {
-  "type": "number",
-  "label": "Task Cell Padding Top",
-  "value": 10,
-  "group":"Task Cell Config"
-},
-"taskCellPaddingBottom": {
-  "type": "number",
-  "label": "Task Cell Padding Bottom",
-  "value": 10,
-  "group":"Task Cell Config"
-},
-"taskCellPaddingLeft": {
-  "type": "number",
-  "label": "Task Cell Padding Left",
-  "value": 5,
-  "group":"Task Cell Config"
-},
+  "taskListMaxHeight": {
+    "type": "number",
+    "label": "Task List Max Height",
+    "value": 900,
+    "group": "Task List Config"
+  },
+  "taskListMaxWidth": {
+    "type": "number",
+    "label": "Task List Max Width",
+    "value": 500,
+    "group": "Task List Config"
+  },
+  "taskListMarginTop": {
+    "type": "number",
+    "label": "Margin Top",
+    "value": 150,
+    "group": "Task List Config"
+  },
+  "taskListMarginLeft": {
+    "type": "number",
+    "label": "Margin Left",
+    "value": 1400,
+    "group": "Task List Config"
+  },
+  "userSectionBackgroundColor": {
+    "type": "colorpicker",
+    "label": "Tasklist Background Colour",
+    "value": "rgba(0, 0, 0, 0.5)",
+    "group": "User Section Config"
+  },
+  "userSectionBorderRadius": {
+    "type": "number",
+    "label": "Task Cell Border Radius",
+    "value": 10,
+    "group": "User Section Config"
+  },
+  "tasklistTitleBackgroundColor": {
+    "type": "colorpicker",
+    "label": "Tasklist Title Background Colour",
+    "value": "rgba(101, 109, 236, 0.9)",
+    "group": "Task List Title Config"
+  },
+  "tasklistTitleColor": {
+    "type": "colorpicker",
+    "label": "Text Color",
+    "value": "rgb(255, 254, 254)",
+    "group": "Task List Title Config"
+  },
+  "tasklistTitleFontName": {
+    "type": "googleFont",
+    "label": "Text Font name",
+    "value": "Roboto",
+    "group": "Task List Title Config"
+  },
+  "tasklistTitleFontSize": {
+    "type": "number",
+    "label": "Text Font size",
+    "value": 20,
+    "group": "Task List Title Config"
+  },
+  "tasklistTitleFontWeight": {
+    "label": "Text Font Weight",
+    "type": "dropdown",
+    "value": "400",
+    "options": {
+      "100": "Thin (100)",
+      "300": "Light (300)",
+      "400": "Regular (400)",
+      "500": "Medium (500)",
+      "700": "Bold (700)",
+      "900": "Black (900)"
+    },
+    "group": "Task List Title Config"
+  },
+  "taskCellTextColor": {
+    "type": "colorpicker",
+    "label": "Task Text Color",
+    "value": "rgb(255, 254, 254)",
+    "group": "Task Cell Config"
+  },
+  "completedTaskBackgroundColor": {
+    "type": "colorpicker",
+    "label": "Completed Task Background Color",
+    "value": "rgba(55, 189, 79, 0.9)",
+    "group": "Task Cell Config"
+  },
+  "taskBackgroundColor": {
+    "type": "colorpicker",
+    "label": "Task Cell Background Colour",
+    "value": "rgba(127, 127, 127, 0.7)",
+    "group": "Task Cell Config"
+  },
+  "taskCellBorderRadius": {
+    "type": "number",
+    "label": "Task Cell Border Radius",
+    "value": 10,
+    "group": "Task Cell Config"
+  },
+  "taskCellBorderWidth": {
+    "type": "number",
+    "label": "Task Cell Border Width (px)",
+    "value": 0,
+    "group": "Task Cell Config"
+  },
+  "taskCellBorderColor": {
+    "type": "colorpicker",
+    "label": "Task Cell Border Color",
+    "value": "rgba(146, 145, 145, 0)",
+    "group": "Task Cell Config"
+  },
+  "taskCellPaddingTop": {
+    "type": "number",
+    "label": "Task Cell Padding Top",
+    "value": 10,
+    "group": "Task Cell Config"
+  },
+  "taskCellPaddingBottom": {
+    "type": "number",
+    "label": "Task Cell Padding Bottom",
+    "value": 10,
+    "group": "Task Cell Config"
+  },
+  "taskCellPaddingLeft": {
+    "type": "number",
+    "label": "Task Cell Padding Left",
+    "value": 5,
+    "group": "Task Cell Config"
+  },
   "taskCellPaddingRight": {
-  "type": "number",
-  "label": "Task Cell Padding Right",
-  "value": 10,
-  "group":"Task Cell Config"
-},
-"doneTaskFeedToggle": {
-  "type": "checkbox",
-  "label": "Show Done Task Feed?",
-  "value": true,
-  "group": "Task Done Feed"
-},
-"doneFeedBackgroundColor": {
-  "type": "colorpicker",
-  "label": "Done Feed Background Colour",
-  "value": "rgba(55, 189, 79, 0.9)",
-  "group": "Task Done Feed"
-},
-"doneFeedTextColor": {
-  "type": "colorpicker",
-  "label": "Done Feed Text Colour",
-  "value": "#fff",
-  "group": "Task Done Feed"
-},
-"aceToggle": {
-  "type": "checkbox",
-  "label": "Show Ace Popup?",
-  "value": true,
-  "group": "ACE"
-},
+    "type": "number",
+    "label": "Task Cell Padding Right",
+    "value": 10,
+    "group": "Task Cell Config"
+  },
+  "doneTaskFeedToggle": {
+    "type": "checkbox",
+    "label": "Show Done Task Feed?",
+    "value": true,
+    "group": "Task Done Feed"
+  },
+  "doneFeedBackgroundColor": {
+    "type": "colorpicker",
+    "label": "Done Feed Background Colour",
+    "value": "rgba(55, 189, 79, 0.9)",
+    "group": "Task Done Feed"
+  },
+  "doneFeedTextColor": {
+    "type": "colorpicker",
+    "label": "Done Feed Text Colour",
+    "value": "#fff",
+    "group": "Task Done Feed"
+  },
+  "aceToggle": {
+    "type": "checkbox",
+    "label": "Show Ace Popup?",
+    "value": true,
+    "group": "ACE"
+  },
   "soundFile": {
-  "type": "sound-input",
-  "label": "Sound file",
-  "value": "",
-  "group":"ACE"  
-},
-"soundVolume": {
-  "type": "slider",
-  "label": "Sound Volume",
-  "value": 20,
-  "min": 0,
-  "max": 100,
-  "steps": 1,
-  "group":"ACE"  
-},
-"aceBanner": {
-  "type": "image-input",
-  "label": "ACE Banner Image",
-  "value": "",
-  "group":"ACE"  
-}
+    "type": "sound-input",
+    "label": "Sound file",
+    "value": "",
+    "group": "ACE"
+  },
+  "soundVolume": {
+    "type": "slider",
+    "label": "Sound Volume",
+    "value": 20,
+    "min": 0,
+    "max": 100,
+    "steps": 1,
+    "group": "ACE"
+  },
+  "aceBanner": {
+    "type": "image-input",
+    "label": "ACE Banner Image",
+    "value": "",
+    "group": "ACE"
+  }
 }
