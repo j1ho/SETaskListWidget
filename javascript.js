@@ -207,12 +207,15 @@ function checkTotalCompletedTasks(){
   } else {
     imageUrl = '{{status5}}';
   }
-  showGoalStatus(imageUrl);
+  if('{{showGoalStatus}}' === 'true'){
+    showGoalStatus(imageUrl);
+  }
 }
 
 function showGoalStatus(imageUrl){
   const taskStatusImg = document.getElementById('taskStatus');
   taskStatusImg.src = imageUrl;
+  taskStatusImg.style.display = 'block';
 }
 
 function playAudio(sound, volume) {

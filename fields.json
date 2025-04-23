@@ -239,6 +239,12 @@
     "value": "",
     "group": "ACE"
   },
+  "showGoalStatus": {
+    "type": "checkbox",
+    "label": "Show Goal Status?",
+    "value": false,
+    "group": "Total Task Status"
+  },
   "defaultTaskGoal": {
     "type": "number",
     "label": "Default Task Goal",
