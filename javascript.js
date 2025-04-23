@@ -2,6 +2,8 @@ const taskList = document.getElementById('taskList');
 const popupContainer = document.getElementById('popupContainer');
 let userTasksMap = new Map(); // Map to store tasks for each user
 let globalTaskIdCounter = 1; // Counter for generating global task IDs
+let totalCompletedTasks = 0;
+let taskGoal = parseInt('{{defaultTaskGoal}}');
 /*
 - Go to jebaited.net website
 - Authorize the application to connect to your Streamelements
@@ -127,6 +129,9 @@ function markTaskAsDone(username, localId) {
         taskItem.classList.add('completedTask');
       }
       
+      totalCompletedTasks = totalCompletedTasks+1;
+      checkTotalCompletedTasks();
+
       // Show popup
       showPopup(`${task.name} marked as done for ${username}.`);
 
@@ -167,6 +172,9 @@ function markTaskAsDone(username, localId) {
     showPopup(`${task.name} marked as done for ${username}.`);
   }
 
+  totalCompletedTasks = totalCompletedTasks+1;
+  checkTotalCompletedTasks();
+
   // Update task count
   updateTaskCount(username);
 
@@ -184,6 +192,27 @@ function checkCompletedTasks(username) {
     showPopup2(`Congratulations ${username}! You have completed ${userTaskData.completedCount} tasks!`,'{{aceBanner}}');
     playAudio('{{soundFile}}','{{soundVolume}}');
   }
+}
+
+function checkTotalCompletedTasks(){
+  let imageUrl = '{{status1}}';
+  if(totalCompletedTasks < taskGoal*0.25){
+    imageUrl = '{{status1}}';
+  } else if(totalCompletedTasks > taskGoal*0.25 && totalCompletedTasks < taskGoal*0.5){
+    imageUrl = '{{status2}}';
+  } else if(totalCompletedTasks > taskGoal*0.5 && totalCompletedTasks < taskGoal*0.75){
+    imageUrl = '{{status3}}';
+  } else if(totalCompletedTasks > taskGoal*0.75 && totalCompletedTasks < taskGoal){
+    imageUrl = '{{status4}}';
+  } else {
+    imageUrl = '{{status5}}';
+  }
+  showGoalStatus(imageUrl);
+}
+
+function showGoalStatus(imageUrl){
+  const taskStatusImg = document.getElementById('taskStatus');
+  taskStatusImg.src = imageUrl;
 }
 
 function playAudio(sound, volume) {
@@ -390,6 +419,11 @@ function sendBotMessage(rawMessage) {
   fetch(`https://api.jebaited.net/botMsg/{{jebaitedToken}}/${encodedMessage}`);
 }
 
+function setTaskGoal(goal){
+  taskGoal = goal;
+  return "Task Goal Set to: "+goal;
+}
+
 window.addEventListener('onEventReceived', function (obj) {
   if (obj.detail.listener == "message") {
     let data = obj.detail.event.data;
@@ -449,6 +483,11 @@ window.addEventListener('onEventReceived', function (obj) {
     } else if (messageParts[0] === '!toptaskers') {
       const response = getTopTaskers();
       showPopup(response);
+      return;
+    } else if (messageParts[0] === '!setgoal' && messageParts.length >= 2) {
+      const goal = parseInt(messageParts[1]);
+      const response = setTaskGoal(goal);
+      sendBotMessage(response);
       return;
     }    
   } else if (obj.detail.listener == "widget-button" || obj.detail.listener == "event:test") {

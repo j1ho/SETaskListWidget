@@ -89,6 +89,14 @@
   height: {{checkboxSize}}px;
 }
 
+#taskStatus {
+  position: absolute;
+  top: {{taskStatusTop}}px;
+  left: {{taskStatusLeft}}px;
+  width: {{taskStatusWidth}}px;
+  height: {{taskStatusHeight}}px;
+}
+
 .popupContainer {
   position: absolute;
   top: 5px;

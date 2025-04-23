@@ -238,5 +238,59 @@
     "label": "ACE Banner Image",
     "value": "",
     "group": "ACE"
+  },
+  "taskStatusTop": {
+    "type": "number",
+    "label": "Top",
+    "value": 10,
+    "group": "Total Task Status"
+  },
+  "taskStatusLeft": {
+    "type": "number",
+    "label": "Left",
+    "value": 10,
+    "group": "Total Task Status"
+  },
+  "taskStatusWidth": {
+    "type": "number",
+    "label": "Width",
+    "value": 250,
+    "group": "Total Task Status"
+  },
+  "taskStatusHeight": {
+    "type": "number",
+    "label": "Height",
+    "value": 250,
+    "group": "Total Task Status"
+  },
+  "status1": {
+    "type": "image-input",
+    "label": "0-24% completed Image",
+    "value": "",
+    "group": "Total Task Status"
+  },
+  "status2": {
+    "type": "image-input",
+    "label": "25-49% completed Image",
+    "value": "",
+    "group": "Total Task Status"
+  },
+  "status3": {
+    "type": "image-input",
+    "label": "50-74% completed Image",
+    "value": "",
+    "group": "Total Task Status"
+  },
+  "status4": {
+    "type": "image-input",
+    "label": "75-99% completed Image",
+    "value": "",
+    "group": "Total Task Status"
+  },
+  "status5": {
+    "type": "image-input",
+    "label": "100% completed Image",
+    "value": "",
+    "group": "Total Task Status"
   }
 }
