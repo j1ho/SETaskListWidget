@@ -239,6 +239,12 @@
     "value": "",
     "group": "ACE"
   },
+  "defaultTaskGoal": {
+    "type": "number",
+    "label": "Default Task Goal",
+    "value": 10,
+    "group": "Total Task Status"
+  },
   "taskStatusTop": {
     "type": "number",
     "label": "Top",
