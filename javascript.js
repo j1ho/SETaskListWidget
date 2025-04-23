@@ -407,7 +407,9 @@ window.addEventListener('onEventReceived', function (obj) {
       data?.tags?.mod === '1' ||
       (typeof data?.tags?.badges === 'string' && data.tags.badges.includes('broadcaster/1'));
 
-    if (messageParts[0].toLowerCase() === '!taskcommands') {
+    messageParts[0] = messageParts[0].toLowerCase();
+
+    if (messageParts[0] === '!taskcommands') {
       const response = "Commands: !task [task name] to add a task, !done to complete a task, !delete [number] to remove a task, !tasks to list tasks, !log [task] to log completed tasks";
       sendBotMessage(response);
     } else if (messageParts[0] === '!task' && messageParts.length >= 2) {
