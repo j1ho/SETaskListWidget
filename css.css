@@ -89,13 +89,56 @@
   height: {{checkboxSize}}px;
 }
 
-#taskStatus {
+#taskStatusContainer {
   position: absolute;
   top: {{taskStatusTop}}px;
   left: {{taskStatusLeft}}px;
   width: {{taskStatusWidth}}px;
   height: {{taskStatusHeight}}px;
+}
+
+#taskStatus {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: {{taskStatusWidth}}px;
+  height: {{taskStatusHeight}}px;
   display: none;
+}
+
+#taskStatusBarBackground {
+  position: absolute;
+  top: 95%;
+  left: 10%;
+  width: 80%;
+  height: 7.5%;
+  background-color: rgba(255, 255, 255, 0.2); /* light background */
+  border-radius: 4px;
+  overflow: hidden;
+  display: none;
+}
+
+#taskStatusBarFill {
+  height: 100%;
+  width: 0%;
+  background-color: rgba(55, 189, 79, 0.9);
+  transition: width 0.5s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#taskStatusBarText {
+  color: white;
+  font-weight: bold;
+  font-size: 0.9em;
+  font-family: '{{mainTextFontName}}', sans-serif;
+  pointer-events: none; /* Makes sure the text doesn't block clicks */
+}
+
+.pulse-on-change {
+  animation: pulse 0.6s ease;
 }
 
 .popupContainer {
@@ -159,4 +202,10 @@
 @keyframes fadeOut {
   from { opacity: 1; }
   to { opacity: 0; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
 }

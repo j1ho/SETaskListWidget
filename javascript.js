@@ -194,28 +194,58 @@ function checkCompletedTasks(username) {
   }
 }
 
-function checkTotalCompletedTasks(){
-  let imageUrl = '{{status1}}';
-  if(totalCompletedTasks < taskGoal*0.25){
+function checkTotalCompletedTasks() {
+  let imageUrl;
+  let taskBarValue;
+
+  if (totalCompletedTasks < taskGoal * 0.25) {
     imageUrl = '{{status1}}';
-  } else if(totalCompletedTasks > taskGoal*0.25 && totalCompletedTasks < taskGoal*0.5){
+    taskBarValue = (totalCompletedTasks / (taskGoal * 0.25)) * 100;
+
+  } else if (totalCompletedTasks < taskGoal * 0.5) {
     imageUrl = '{{status2}}';
-  } else if(totalCompletedTasks > taskGoal*0.5 && totalCompletedTasks < taskGoal*0.75){
+    taskBarValue = ((totalCompletedTasks - taskGoal * 0.25) / (taskGoal * 0.25)) * 100;
+
+  } else if (totalCompletedTasks < taskGoal * 0.75) {
     imageUrl = '{{status3}}';
-  } else if(totalCompletedTasks > taskGoal*0.75 && totalCompletedTasks < taskGoal){
+    taskBarValue = ((totalCompletedTasks - taskGoal * 0.5) / (taskGoal * 0.25)) * 100;
+
+  } else if (totalCompletedTasks < taskGoal) {
     imageUrl = '{{status4}}';
+    taskBarValue = ((totalCompletedTasks - taskGoal * 0.75) / (taskGoal * 0.25)) * 100;
+
   } else {
     imageUrl = '{{status5}}';
+    taskBarValue = 100;
   }
-  if('{{showGoalStatus}}' === 'true'){
+
+  if ('{{showGoalStatus}}' === 'true') {
     showGoalStatus(imageUrl);
+    updateProgressBar(taskBarValue);
   }
 }
 
-function showGoalStatus(imageUrl){
+function showGoalStatus(imageUrl) {
   const taskStatusImg = document.getElementById('taskStatus');
-  taskStatusImg.src = imageUrl;
+
+  if (taskStatusImg.src !== imageUrl) {
+    taskStatusImg.src = imageUrl;
+    taskStatusImg.classList.remove('pulse-on-change');
+    void taskStatusImg.offsetWidth;
+    taskStatusImg.classList.add('pulse-on-change');
+  }
+
   taskStatusImg.style.display = 'block';
+}
+
+function updateProgressBar(value) {
+  const barBackground = document.getElementById('taskStatusBarBackground');
+  const barFill = document.getElementById('taskStatusBarFill');
+  const barText = document.getElementById('taskStatusBarText');
+
+  barBackground.style.display = 'block';
+  barFill.style.width = `${value}%`;
+  barText.textContent = `${Math.round(value)}%`;
 }
 
 function playAudio(sound, volume) {
