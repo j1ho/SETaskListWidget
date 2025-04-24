@@ -197,29 +197,28 @@ function checkCompletedTasks(username) {
 function checkTotalCompletedTasks() {
   let imageUrl;
   let taskBarValue;
-
-  if (totalCompletedTasks < taskGoal * 0.25) {
-    imageUrl = '{{status1}}';
-    taskBarValue = (totalCompletedTasks / (taskGoal * 0.25)) * 100;
-
-  } else if (totalCompletedTasks < taskGoal * 0.5) {
-    imageUrl = '{{status2}}';
-    taskBarValue = ((totalCompletedTasks - taskGoal * 0.25) / (taskGoal * 0.25)) * 100;
-
-  } else if (totalCompletedTasks < taskGoal * 0.75) {
-    imageUrl = '{{status3}}';
-    taskBarValue = ((totalCompletedTasks - taskGoal * 0.5) / (taskGoal * 0.25)) * 100;
-
-  } else if (totalCompletedTasks < taskGoal) {
-    imageUrl = '{{status4}}';
-    taskBarValue = ((totalCompletedTasks - taskGoal * 0.75) / (taskGoal * 0.25)) * 100;
-
-  } else {
-    triggerFinalStatusGif();
-    return; // Stop here — progress bar handled in the GIF trigger
-  }
-
   if ('{{showGoalStatus}}' === 'true') {
+    if (totalCompletedTasks < taskGoal * 0.25) {
+      imageUrl = '{{status1}}';
+      taskBarValue = (totalCompletedTasks / (taskGoal * 0.25)) * 100;
+
+    } else if (totalCompletedTasks < taskGoal * 0.5) {
+      imageUrl = '{{status2}}';
+      taskBarValue = ((totalCompletedTasks - taskGoal * 0.25) / (taskGoal * 0.25)) * 100;
+
+    } else if (totalCompletedTasks < taskGoal * 0.75) {
+      imageUrl = '{{status3}}';
+      taskBarValue = ((totalCompletedTasks - taskGoal * 0.5) / (taskGoal * 0.25)) * 100;
+
+    } else if (totalCompletedTasks < taskGoal) {
+      imageUrl = '{{status4}}';
+      taskBarValue = ((totalCompletedTasks - taskGoal * 0.75) / (taskGoal * 0.25)) * 100;
+
+    } else {
+      triggerFinalStatusGif();
+      return; // Stop here — progress bar handled in the GIF trigger
+    }
+
     showGoalStatus(imageUrl);
     updateProgressBar(taskBarValue);
   }

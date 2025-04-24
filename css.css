@@ -107,6 +107,7 @@
   left: 0;
   width: {{taskStatusWidth}}px;
   height: {{taskStatusHeight}}px;
+  display: none;
 }
 
 #taskStatusBarBackground {
