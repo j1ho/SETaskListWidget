@@ -215,8 +215,8 @@ function checkTotalCompletedTasks() {
     taskBarValue = ((totalCompletedTasks - taskGoal * 0.75) / (taskGoal * 0.25)) * 100;
 
   } else {
-    imageUrl = '{{status5}}';
-    taskBarValue = 100;
+    triggerFinalStatusGif();
+    return; // Stop here — progress bar handled in the GIF trigger
   }
 
   if ('{{showGoalStatus}}' === 'true') {
@@ -246,6 +246,24 @@ function updateProgressBar(value) {
   barBackground.style.display = 'block';
   barFill.style.width = `${value}%`;
   barText.textContent = `${Math.round(value)}%`;
+}
+
+function triggerFinalStatusGif() {
+  const finalGif = document.getElementById('taskStatusFinalGif');
+  const statusImg = document.getElementById('taskStatus');
+  const finalImage = '{{status5}}';
+
+  statusImg.src = finalImage;
+  statusImg.style.display = 'block';
+
+  finalGif.src = '{{statusFinalGif}}';
+  finalGif.style.display = 'block';
+
+  updateProgressBar(100);
+
+  setTimeout(() => {
+    finalGif.style.display = 'none';
+  }, 2500);
 }
 
 function playAudio(sound, volume) {
@@ -589,4 +607,3 @@ function generateTestTasks() {
   markTaskAsDone("JungDKook", 3); // No badge
   markTaskAsDone("liya", 1);
 }
-

@@ -95,15 +95,18 @@
   left: {{taskStatusLeft}}px;
   width: {{taskStatusWidth}}px;
   height: {{taskStatusHeight}}px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-#taskStatus {
+#taskStatus, #taskStatusFinalGif {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   width: {{taskStatusWidth}}px;
   height: {{taskStatusHeight}}px;
-  display: none;
 }
 
 #taskStatusBarBackground {

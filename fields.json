@@ -304,5 +304,11 @@
     "label": "100% completed Image",
     "value": "",
     "group": "Total Task Status"
+  },
+  "statusFinalGif": {
+    "type": "image-input",
+    "label": "100% completed gif",
+    "value": "",
+    "group": "Total Task Status"
   }
 }
