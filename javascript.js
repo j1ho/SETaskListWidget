@@ -255,15 +255,16 @@ function triggerFinalStatusGif() {
 
   statusImg.src = finalImage;
   statusImg.style.display = 'block';
-
-  finalGif.src = '{{statusFinalGif}}';
-  finalGif.style.display = 'block';
-
   updateProgressBar(100);
 
-  setTimeout(() => {
-    finalGif.style.display = 'none';
-  }, 2500);
+  if('{{statusFinalGif}}' != 'null' ){
+    finalGif.src = '{{statusFinalGif}}';
+    finalGif.style.display = 'block';
+  
+    setTimeout(() => {
+      finalGif.style.display = 'none';
+    }, 2500);
+  }
 }
 
 function playAudio(sound, volume) {
