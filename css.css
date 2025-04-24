@@ -11,21 +11,24 @@
   overflow-y: hidden;
 }
 
-.taskListTitle{
+.taskListTitle {
   font-family: '{{tasklistTitleFontName}}', sans-serif;
   font-weight: {{tasklistTitleTextFontWeight}};
   font-size: {{tasklistTitleTextFontSize}}px;
-  color: {{tasklistTitleColor}}; /* Top Color */
+  color: {{tasklistTitleColor}};
   background-color: {{tasklistTitleBackgroundColor}};
-  margin-top: 0px;
-  margin-bottom: 10px;
-  margin-left: 0px;
-  margin-right: 0px;
-  padding-top: {{taskCellPaddingTop}}px;
-  padding-bottom: {{taskCellPaddingBottom}}px;
-  padding-left: {{taskCellPaddingLeft}}px;
-  padding-right: {{taskCellPaddingRight}}px;
+  padding: {{taskCellPaddingTop}}px {{taskCellPaddingRight}}px {{taskCellPaddingBottom}}px {{taskCellPaddingLeft}}px;
   border-radius: {{taskCellBorderRadius}}px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.taskListCount {
+  font-size: 0.9em;
+  font-weight: bold;
+  opacity: 0.8;
 }
 
 #taskListBody{
@@ -138,7 +141,12 @@
   font-weight: bold;
   font-size: 0.9em;
   font-family: '{{mainTextFontName}}', sans-serif;
-  pointer-events: none; /* Makes sure the text doesn't block clicks */
+  line-height: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 }
 
 .pulse-on-change {

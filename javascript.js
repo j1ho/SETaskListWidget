@@ -73,6 +73,7 @@ function addTask(username, taskName, displayColor, badges) {
 
   // Update task count
   updateTaskCount(username);
+  updateGlobalTaskCount();
 
   // Scroll to bottom
   taskList.scrollTop = taskList.scrollHeight;
@@ -89,6 +90,17 @@ function updateTaskCount(username) {
   userTaskData.completedCount = completedCount; // Ensure completedCount is updated correctly
   const userTitle = document.getElementById(`userTitle-${username}`);
   userTitle.textContent = `${username} (${completedCount}/${totalCount})`;
+}
+
+function updateGlobalTaskCount() {
+  let total = 0;
+  for (const [, userData] of userTasksMap.entries()) {
+    total += userData.tasks.length;
+  }
+  const taskListCount = document.getElementById('taskListCount');
+  if (taskListCount) {
+    taskListCount.textContent = `${totalCompletedTasks}/${total}`;
+  }
 }
 
 // Function to list tasks
@@ -137,6 +149,7 @@ function markTaskAsDone(username, localId) {
 
       // Update task count
       updateTaskCount(username);
+      updateGlobalTaskCount();
 
       // Check if user completed 5 tasks
       checkCompletedTasks(username);
@@ -177,6 +190,7 @@ function markTaskAsDone(username, localId) {
 
   // Update task count
   updateTaskCount(username);
+  updateGlobalTaskCount();
 
   // Check if user completed 5 tasks
   checkCompletedTasks(username);
@@ -286,6 +300,11 @@ function deleteTask(username, localId) {
   }
 
   const task = userTaskData.tasks[taskIndex];
+
+  if (task.done) {
+    totalCompletedTasks = Math.max(0, totalCompletedTasks - 1);
+  }
+
   userTaskData.tasks.splice(taskIndex, 1); // Remove the task from the array
 
   // Remove the task item from the DOM
@@ -299,6 +318,7 @@ function deleteTask(username, localId) {
 
   // Update task count
   updateTaskCount(username);
+  updateGlobalTaskCount();
 
   // Remove user section if no tasks left
   if (userTaskData.tasks.length === 0) {
