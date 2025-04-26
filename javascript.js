@@ -193,15 +193,20 @@ function markTaskAsDone(username, localId) {
   updateGlobalTaskCount();
 
   // Check if user completed 5 tasks
-  checkCompletedTasks(username);
+  let responseAddOn = '';
+  responseAddOn = checkCompletedTasks(username);
 
-  return `${task.name} marked as done for ${username}.`;
+  return `${task.name} marked as done for ${username}. ` + responseAddOn;
 }
 
 // Function to check if a user has completed 5 tasks
 function checkCompletedTasks(username) {
   const userTaskData = userTasksMap.get(username);
   const aceToggle = '{{aceToggle}}' === 'true';
+  const showGoalStatus = '{{showGoalStatus}}' === 'true';
+  if (showGoalStatus && userTaskData.completedCount === 1) {
+    return "keep completing tasks to grow our pet";
+  }
   if (aceToggle && userTaskData.completedCount % 5 === 0) {
     showPopup2(`Congratulations ${username}! You have completed ${userTaskData.completedCount} tasks!`,'{{aceBanner}}');
     playAudio('{{soundFile}}','{{soundVolume}}');
