@@ -253,26 +253,32 @@
   },
   "taskStatusTop": {
     "type": "number",
-    "label": "Top",
+    "label": "Positioning from Top (px)",
     "value": 10,
     "group": "Total Task Status"
   },
   "taskStatusLeft": {
     "type": "number",
-    "label": "Left",
+    "label": "Positioning from Left (px)",
     "value": 10,
     "group": "Total Task Status"
   },
   "taskStatusWidth": {
     "type": "number",
-    "label": "Width",
+    "label": "Width (px)",
     "value": 250,
     "group": "Total Task Status"
   },
   "taskStatusHeight": {
     "type": "number",
-    "label": "Height",
+    "label": "Height (px)",
     "value": 250,
+    "group": "Total Task Status"
+  },
+  "progressBarFillColor": {
+    "type": "colorpicker",
+    "label": "Progress Bar Fill Color",
+    "value": "rgba(55, 189, 79, 0.9)",
     "group": "Total Task Status"
   },
   "status1": {
