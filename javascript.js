@@ -235,7 +235,8 @@ function checkTotalCompletedTasks() {
 
     } else {
       triggerFinalStatusGif();
-      return; // Stop here — progress bar handled in the GIF trigger
+      updateProgressBar(100);
+      return;
     }
 
     showGoalStatus(imageUrl);
@@ -246,14 +247,14 @@ function checkTotalCompletedTasks() {
 function showGoalStatus(imageUrl) {
   const taskStatusImg = document.getElementById('taskStatus');
 
-  if (taskStatusImg.src !== imageUrl) {
+  if (imageUrl && taskStatusImg.src !== imageUrl) {
     taskStatusImg.src = imageUrl;
+    taskStatusImg.style.display = 'block';
     taskStatusImg.classList.remove('pulse-on-change');
     void taskStatusImg.offsetWidth;
     taskStatusImg.classList.add('pulse-on-change');
   }
 
-  taskStatusImg.style.display = 'block';
 }
 
 function updateProgressBar(value) {
@@ -271,17 +272,18 @@ function triggerFinalStatusGif() {
   const statusImg = document.getElementById('taskStatus');
   const finalImage = '{{status5}}';
 
-  statusImg.src = finalImage;
-  statusImg.style.display = 'block';
-  updateProgressBar(100);
-
-  if('{{statusFinalGif}}' != 'null' ){
-    finalGif.src = '{{statusFinalGif}}';
-    finalGif.style.display = 'block';
+  if(finalImage && statusImg.src !== finalImage){
+    statusImg.src = finalImage;
+    statusImg.style.display = 'block';
   
-    setTimeout(() => {
-      finalGif.style.display = 'none';
-    }, 2500);
+    if('{{statusFinalGif}}' != 'null' ){
+      finalGif.src = '{{statusFinalGif}}';
+      finalGif.style.display = 'block';
+    
+      setTimeout(() => {
+        finalGif.style.display = 'none';
+      }, 2500);
+    }
   }
 }
 
