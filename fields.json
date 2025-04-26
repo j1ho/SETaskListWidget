@@ -185,7 +185,7 @@
   "taskCellPaddingLeft": {
     "type": "number",
     "label": "Task Cell Padding Left",
-    "value": 5,
+    "value": 10,
     "group": "Task Cell Config"
   },
   "taskCellPaddingRight": {

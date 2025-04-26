@@ -13,8 +13,8 @@
 
 .taskListTitle {
   font-family: '{{tasklistTitleFontName}}', sans-serif;
-  font-weight: {{tasklistTitleTextFontWeight}};
-  font-size: {{tasklistTitleTextFontSize}}px;
+  font-weight: {{tasklistTitleFontWeight}};
+  font-size: {{tasklistTitleFontSize}}px;
   color: {{tasklistTitleColor}};
   background-color: {{tasklistTitleBackgroundColor}};
   padding: {{taskCellPaddingTop}}px {{taskCellPaddingRight}}px {{taskCellPaddingBottom}}px {{taskCellPaddingLeft}}px;
@@ -50,7 +50,7 @@
 .badge {
   width: 20px; /* Adjust as needed */
   height: 20px; /* Adjust as needed */
-  margin-right: 5px; /* Adjust as needed */
+  margin-right: 0px; /* Adjust as needed */
   vertical-align: middle; /* Align with the user title */
 }
 .userTitle {
