@@ -8,6 +8,7 @@
   background-color: {{taskListBackgroundColor}};
   max-height: {{taskListMaxHeight}}px;
   padding-bottom: 50px;
+  margin-top: 5px;
   overflow-y: hidden;
 }
 
