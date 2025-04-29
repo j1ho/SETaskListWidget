@@ -193,10 +193,14 @@ function markTaskAsDone(username, localId) {
   updateGlobalTaskCount();
 
   // Check if user completed 5 tasks
-  let responseAddOn = '';
-  responseAddOn = checkCompletedTasks(username);
+  // Check if user completed 5 tasks
+  let responseAddOn = checkCompletedTasks(username);
 
-  return `${task.name} marked as done for ${username}. ` + responseAddOn;
+  if(responseAddOn != null){
+      return `${task.name} marked as done for ${username}. ` + responseAddOn;
+  } else {  
+      return `${task.name} marked as done for ${username}.`;
+  }
 }
 
 // Function to check if a user has completed 5 tasks
