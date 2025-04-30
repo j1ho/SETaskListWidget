@@ -227,7 +227,7 @@
   "soundVolume": {
     "type": "slider",
     "label": "Sound Volume",
-    "value": 20,
+    "value": 50,
     "min": 0,
     "max": 100,
     "steps": 1,
@@ -315,6 +315,21 @@
     "type": "image-input",
     "label": "100% completed gif",
     "value": "",
+    "group": "Total Task Status"
+  },
+  "finalStatusSoundFile": {
+    "type": "sound-input",
+    "label": "Final Status Sound file",
+    "value": "",
+    "group": "Total Task Status"
+  },
+  "finalStatusSoundVolume": {
+    "type": "slider",
+    "label": "Final Status Sound Volume",
+    "value": 50,
+    "min": 0,
+    "max": 100,
+    "steps": 1,
     "group": "Total Task Status"
   }
 }

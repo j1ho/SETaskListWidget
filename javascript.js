@@ -290,7 +290,11 @@ function triggerFinalStatusGif() {
     
       setTimeout(() => {
         finalGif.style.display = 'none';
-      }, 2500);
+      }, 3000);
+    }
+
+    if('{{finalStatusSoundFile}}' != 'null' ){
+      playAudio('{{finalStatusSoundFile}}', '{{finalStatusSoundVolume}}')
     }
   }
 }
