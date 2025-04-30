@@ -250,10 +250,14 @@ function checkTotalCompletedTasks() {
 
 function showGoalStatus(imageUrl) {
   const taskStatusImg = document.getElementById('taskStatus');
-
-  if (imageUrl && taskStatusImg.src !== imageUrl) {
-    taskStatusImg.src = imageUrl;
+  if (imageUrl != 'null') {
     taskStatusImg.style.display = 'block';
+  } else {
+    taskStatusImg.style.display = 'none';
+  }
+
+  if (taskStatusImg.src !== imageUrl) {
+    taskStatusImg.src = imageUrl;
     taskStatusImg.classList.remove('pulse-on-change');
     void taskStatusImg.offsetWidth;
     taskStatusImg.classList.add('pulse-on-change');
@@ -580,6 +584,34 @@ window.addEventListener('onEventReceived', function (obj) {
     return;
   }
 });
+
+window.addEventListener('onWidgetLoad', async obj => {
+  FieldData = obj.detail.fieldData;
+
+  if ('{{showGoalStatus}}' === 'true') {
+    initializeTaskStatus();
+  }
+});
+
+function initializeTaskStatus() {
+  const taskStatusImg = document.getElementById('taskStatus');
+  let imageUrl = '{{status1}}';
+
+  if (imageUrl != 'null') {
+    taskStatusImg.src = imageUrl;  // Starting image
+    taskStatusImg.style.display = 'block';
+  }
+
+  const taskStatusBarBackground = document.getElementById('taskStatusBarBackground');
+  const taskStatusBarFill = document.getElementById('taskStatusBarFill');
+  const taskStatusBarText = document.getElementById('taskStatusBarText');
+
+  if (taskStatusBarBackground && taskStatusBarFill && taskStatusBarText) {
+    taskStatusBarBackground.style.display = 'block';
+    taskStatusBarFill.style.width = '0%';
+    taskStatusBarText.textContent = '0%';
+  }
+}
 
 function onButton(event) {
   const { field } = event;
