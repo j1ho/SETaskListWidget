@@ -317,6 +317,21 @@
     "value": "",
     "group": "Total Task Status"
   },
+  "statusChangeSoundFile": {
+    "type": "sound-input",
+    "label": "Status Change Sound file",
+    "value": "",
+    "group": "Total Task Status"
+  },
+  "statusChangeSoundVolume": {
+    "type": "slider",
+    "label": "Status Change Sound Volume",
+    "value": 50,
+    "min": 0,
+    "max": 100,
+    "steps": 1,
+    "group": "Total Task Status"
+  },
   "finalStatusSoundFile": {
     "type": "sound-input",
     "label": "Final Status Sound file",

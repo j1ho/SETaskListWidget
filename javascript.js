@@ -260,6 +260,7 @@ function showGoalStatus(imageUrl) {
     taskStatusImg.src = imageUrl;
     taskStatusImg.classList.remove('pulse-on-change');
     void taskStatusImg.offsetWidth;
+    playAudio('{{statusChangeSoundFile}}', '{{statusChangeSoundVolume}}')
     taskStatusImg.classList.add('pulse-on-change');
   }
 
