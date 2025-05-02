@@ -94,9 +94,14 @@ function updateTaskCount(username) {
 
 function updateGlobalTaskCount() {
   let total = 0;
+  let completed = 0;
   for (const [, userData] of userTasksMap.entries()) {
     total += userData.tasks.length;
+    completed += userData.tasks.filter(task => task.done).length;
   }
+
+  totalCompletedTasks = completed;
+
   const taskListCount = document.getElementById('taskListCount');
   if (taskListCount) {
     taskListCount.textContent = `${totalCompletedTasks}/${total}`;
@@ -339,6 +344,7 @@ function deleteTask(username, localId) {
   // Update task count
   updateTaskCount(username);
   updateGlobalTaskCount();
+  checkTotalCompletedTasks();
 
   // Remove user section if no tasks left
   if (userTaskData.tasks.length === 0) {
@@ -397,6 +403,9 @@ function clearTasks(username, isMod) {
   if (userTaskData.tasks.length === 0) {
     removeUserSection(username);
   }
+
+  updateGlobalTaskCount();
+  checkTotalCompletedTasks();
 
   return `All tasks cleared for ${username}.`;
 }
