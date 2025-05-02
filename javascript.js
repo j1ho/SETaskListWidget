@@ -209,7 +209,7 @@ function checkCompletedTasks(username) {
   const aceToggle = '{{aceToggle}}' === 'true';
   const showGoalStatus = '{{showGoalStatus}}' === 'true';
   if (showGoalStatus && userTaskData.completedCount === 1) {
-    return "keep completing tasks to grow our pet";
+    return "{{taskStatusAddOnMessage}}";
   }
   if (aceToggle && userTaskData.completedCount % 5 === 0) {
     showPopup2(`Congratulations ${username}! You have completed ${userTaskData.completedCount} tasks!`,'{{aceBanner}}');

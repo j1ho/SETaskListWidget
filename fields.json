@@ -346,5 +346,11 @@
     "max": 100,
     "steps": 1,
     "group": "Total Task Status"
+  },
+  "taskStatusAddOnMessage": {
+    "type": "textarea",
+    "label": "Message when first task is completed",
+    "value": "keep completing tasks to grow our pet",
+    "group": "Total Task Status"
   }
 }
