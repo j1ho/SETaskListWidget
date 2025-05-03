@@ -225,31 +225,33 @@ function checkCompletedTasks(username) {
 function checkTotalCompletedTasks() {
   let imageUrl;
   let taskBarValue;
+  let tasksUntilNextStage;
   if ('{{showGoalStatus}}' === 'true') {
     if (totalCompletedTasks < taskGoal * 0.25) {
       imageUrl = '{{status1}}';
       taskBarValue = (totalCompletedTasks / (taskGoal * 0.25)) * 100;
-
+      tasksUntilNextStage = `${totalCompletedTasks}/`+Math.ceil(taskGoal*0.25);
     } else if (totalCompletedTasks < taskGoal * 0.5) {
       imageUrl = '{{status2}}';
       taskBarValue = ((totalCompletedTasks - taskGoal * 0.25) / (taskGoal * 0.25)) * 100;
-
+      tasksUntilNextStage = Math.ceil(totalCompletedTasks - taskGoal * 0.25)+'/'+Math.ceil(taskGoal * 0.25);
     } else if (totalCompletedTasks < taskGoal * 0.75) {
       imageUrl = '{{status3}}';
       taskBarValue = ((totalCompletedTasks - taskGoal * 0.5) / (taskGoal * 0.25)) * 100;
-
+      tasksUntilNextStage = Math.ceil(totalCompletedTasks - taskGoal * 0.5)+'/'+Math.ceil(taskGoal * 0.25);
     } else if (totalCompletedTasks < taskGoal) {
       imageUrl = '{{status4}}';
       taskBarValue = ((totalCompletedTasks - taskGoal * 0.75) / (taskGoal * 0.25)) * 100;
-
+      tasksUntilNextStage = Math.ceil(totalCompletedTasks - taskGoal * 0.75)+'/'+Math.ceil(taskGoal * 0.25);
     } else {
       triggerFinalStatusGif();
-      updateProgressBar(100);
+      tasksUntilNextStage = `${totalCompletedTasks}/${taskGoal}`;
+      updateProgressBar(100,tasksUntilNextStage);
       return;
     }
 
     showGoalStatus(imageUrl);
-    updateProgressBar(taskBarValue);
+    updateProgressBar(taskBarValue,tasksUntilNextStage);
   }
 }
 
@@ -271,14 +273,15 @@ function showGoalStatus(imageUrl) {
 
 }
 
-function updateProgressBar(value) {
+function updateProgressBar(value,tasksUntilNextStage) {
   const barBackground = document.getElementById('taskStatusBarBackground');
   const barFill = document.getElementById('taskStatusBarFill');
   const barText = document.getElementById('taskStatusBarText');
 
   barBackground.style.display = 'block';
   barFill.style.width = `${value}%`;
-  barText.textContent = `${Math.round(value)}%`;
+  // barText.textContent = `${Math.round(value)}%`;
+  barText.textContent = tasksUntilNextStage;
 }
 
 function triggerFinalStatusGif() {
