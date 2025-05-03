@@ -637,7 +637,6 @@ function initializeTaskStatus() {
   if (taskStatusBarBackground && taskStatusBarFill && taskStatusBarText) {
     taskStatusBarBackground.style.display = 'block';
     taskStatusBarFill.style.width = '0%';
-    taskStatusBarText.textContent = '0%';
   }
 }
 
