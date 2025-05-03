@@ -281,6 +281,17 @@
     "value": "rgba(55, 189, 79, 0.9)",
     "group": "Total Task Status"
   },
+  "progressBarText": {
+    "label": "Progress Bar Text",
+    "type": "dropdown",
+    "value": "1",
+    "options": {
+      "0": "None",
+      "1": "Tasks Until Next Stage",
+      "2": "Percentage"
+    },
+    "group": "Total Task Status"
+  },
   "status1": {
     "type": "image-input",
     "label": "0-24% completed Image",

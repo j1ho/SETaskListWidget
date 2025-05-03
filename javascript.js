@@ -280,8 +280,19 @@ function updateProgressBar(value,tasksUntilNextStage) {
 
   barBackground.style.display = 'block';
   barFill.style.width = `${value}%`;
-  // barText.textContent = `${Math.round(value)}%`;
-  barText.textContent = tasksUntilNextStage;
+  switch ("{{progressBarText}}") {
+    case "0":
+      barText.textContent = '';
+      break;
+    case "1":
+      barText.textContent = tasksUntilNextStage;
+      break;
+    case "2":
+      barText.textContent = `${Math.round(value)}%`;
+      break;
+    default:
+      barText.textContent = '';
+  }
 }
 
 function triggerFinalStatusGif() {
