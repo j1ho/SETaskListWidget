@@ -330,22 +330,30 @@ function deleteTask(username, localId) {
   if (!userTasksMap.has(username)) {
     return `${username} has no tasks.`;
   }
-
   const userTaskData = userTasksMap.get(username);
-  const taskIndex = userTaskData.tasks.findIndex(task => task.localId === localId);
-
-  if (taskIndex === -1) {
-    return `Task with ID ${localId} not found for ${username}.`;
+  let taskIndex;
+  let task;
+  if(!localId){
+    taskIndex = userTaskData.tasks.length-1;
+    task = userTaskData.tasks[taskIndex];
+    if (task.done) {
+      return 'Can not delete a completed task without a number try !delete [number]';
+    }
+  } else {
+    taskIndex = userTaskData.tasks.findIndex(task => task.localId === localId);
+  
+    if (taskIndex === -1) {
+      return `Task with ID ${localId} not found for ${username}.`;
+    }
+  
+    task = userTaskData.tasks[taskIndex];
+  
+    if (task.done) {
+      totalCompletedTasks = Math.max(0, totalCompletedTasks - 1);
+    }
   }
-
-  const task = userTaskData.tasks[taskIndex];
-
-  if (task.done) {
-    totalCompletedTasks = Math.max(0, totalCompletedTasks - 1);
-  }
-
   userTaskData.tasks.splice(taskIndex, 1); // Remove the task from the array
-
+  
   // Remove the task item from the DOM
   const taskItem = document.getElementById(`task-${username}-${localId}`);
   if (taskItem) {
@@ -366,6 +374,7 @@ function deleteTask(username, localId) {
   }
 
   return `${task.name} deleted for ${username}.`;
+
 }
 
 function renumberTasksFrom(username, startIndex) {
