@@ -601,7 +601,7 @@ window.addEventListener('onEventReceived', function (obj) {
       response = response + " Task " + task.name + " added for " + username + ".";
       sendBotMessage(response);
 
-    } else if (messageParts[0] === '!delete') {
+    } else if (messageParts[0] === '!delete' || messageParts[0] === '!removetask') {
       const localId = parseInt(messageParts[1]);
       const response = deleteTask(username, localId);
       sendBotMessage(response);
