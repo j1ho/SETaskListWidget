@@ -54,6 +54,12 @@
     },
     "group": "Text Config"
   },
+  "showTaskList": {
+    "type": "checkbox",
+    "label": "Show Task List?",
+    "value": true,
+    "group": "Task List Config"
+  },
   "taskListBackgroundColor": {
     "type": "colorpicker",
     "label": "Tasklist Background Colour",

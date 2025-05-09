@@ -616,10 +616,23 @@ window.addEventListener('onEventReceived', function (obj) {
 window.addEventListener('onWidgetLoad', async obj => {
   FieldData = obj.detail.fieldData;
 
+  if('{{showTaskList}}' === 'false') {
+    hideTaskList();
+  }
+  
   if ('{{showGoalStatus}}' === 'true') {
     initializeTaskStatus();
   }
+
 });
+
+function hideTaskList() {
+  const taskStatusImg = document.getElementById('taskListContainter');
+
+  if (taskStatusImg) {
+    taskStatusImg.style.display = 'none';
+  }
+}
 
 function initializeTaskStatus() {
   const taskStatusImg = document.getElementById('taskStatus');
