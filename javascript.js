@@ -563,7 +563,10 @@ window.addEventListener('onEventReceived', function (obj) {
     } else if (messageParts[0] === '!task' && messageParts.length >= 2) {
       const taskName = messageParts.slice(1).join(' ');
       const task = addTask(username, taskName, displayColor, badges);
-      const response = "Task " + task.name + " added for " + username + ".";
+      let response = "Task " + task.name + " added for " + username + ".";
+      if(username == 'xhumming' || username == 'Seiji'){
+        response = "Yeah... you should really take a shower";
+      }
       sendBotMessage(response);
 
     } else if ((messageParts[0] === '!task' || messageParts[0] === '!tasks') && messageParts.length === 1) {
@@ -580,6 +583,13 @@ window.addEventListener('onEventReceived', function (obj) {
       const task = addTask(username, taskName, displayColor, badges);
       const localId = task.localId;
       const response = markTaskAsDone(username, isNaN(localId) ? null : localId);
+      sendBotMessage(response);
+
+    } else if (messageParts[0] === '!next' && messageParts.length >= 2) {
+      let response = markTaskAsDone(username, null);
+      const taskName = messageParts.slice(1).join(' ');
+      const task = addTask(username, taskName, displayColor, badges);
+      response = response + " Task " + task.name + " added for " + username + ".";
       sendBotMessage(response);
 
     } else if (messageParts[0] === '!delete') {
@@ -619,7 +629,7 @@ window.addEventListener('onWidgetLoad', async obj => {
   if('{{showTaskList}}' === 'false') {
     hideTaskList();
   }
-  
+
   if ('{{showGoalStatus}}' === 'true') {
     initializeTaskStatus();
   }
