@@ -580,9 +580,6 @@ window.addEventListener('onEventReceived', function (obj) {
       const taskName = messageParts.slice(1).join(' ');
       const task = addTask(username, taskName, displayColor, badges);
       let response = "Task " + task.name + " added for " + username + ".";
-      if(username == 'xhumming' || username == 'Seiji'){
-        response = "Yeah... you should really take a shower";
-      }
       sendBotMessage(response);
 
     } else if ((messageParts[0] === '!task' || messageParts[0] === '!tasks') && messageParts.length === 1) {
