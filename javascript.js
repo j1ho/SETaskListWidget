@@ -336,6 +336,7 @@ function deleteTask(username, localId) {
   if(!localId){
     taskIndex = userTaskData.tasks.length-1;
     task = userTaskData.tasks[taskIndex];
+    localId = taskIndex+1;
     if (task.done) {
       return 'Can not delete a completed task without a number try !delete [number]';
     }
