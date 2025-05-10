@@ -287,6 +287,12 @@
     "value": "rgba(55, 189, 79, 0.9)",
     "group": "Total Task Status"
   },
+  "progressBarFontSize": {
+    "type": "number",
+    "label": "Progress Bar Font Size",
+    "value": 24,
+    "group": "Total Task Status"
+  },
   "progressBarText": {
     "label": "Progress Bar Text",
     "type": "dropdown",
