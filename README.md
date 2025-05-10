@@ -14,3 +14,6 @@ please enter the jebaited token in the field for the jebaited token. keep this t
 
 Setup/Demo Video
 https://youtu.be/RjooJO5cNB0 
+
+Task Pet Update
+https://youtu.be/jBx8bP3uvUQ
