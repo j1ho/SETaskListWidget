@@ -4,6 +4,8 @@ let userTasksMap = new Map(); // Map to store tasks for each user
 let globalTaskIdCounter = 1; // Counter for generating global task IDs
 let totalCompletedTasks = 0;
 let taskGoal = parseInt('{{defaultTaskGoal}}');
+let currentStatusImageUrl = null;
+
 /*
 - Go to jebaited.net website
 - Authorize the application to connect to your Streamelements
@@ -243,7 +245,7 @@ function checkTotalCompletedTasks() {
       imageUrl = '{{status4}}';
       taskBarValue = ((totalCompletedTasks - taskGoal * 0.75) / (taskGoal * 0.25)) * 100;
       tasksUntilNextStage = Math.ceil(totalCompletedTasks - taskGoal * 0.75)+'/'+Math.ceil(taskGoal * 0.25);
-    } else {
+    } else if (totalCompletedTasks >= taskGoal) {
       triggerFinalStatusGif();
       tasksUntilNextStage = `${totalCompletedTasks}/${taskGoal}`;
       updateProgressBar(100,tasksUntilNextStage);
@@ -257,21 +259,25 @@ function checkTotalCompletedTasks() {
 
 function showGoalStatus(imageUrl) {
   const taskStatusImg = document.getElementById('taskStatus');
-  if (imageUrl != 'null') {
+  
+  if (imageUrl !== 'null') {
     taskStatusImg.style.display = 'block';
   } else {
     taskStatusImg.style.display = 'none';
   }
 
-  if (taskStatusImg.src !== imageUrl) {
+  if (taskStatusImg.src !== imageUrl && imageUrl !== currentStatusImageUrl) {
     taskStatusImg.src = imageUrl;
+    currentStatusImageUrl = imageUrl; // ✅ update the tracker
+
     taskStatusImg.classList.remove('pulse-on-change');
     void taskStatusImg.offsetWidth;
-    playAudio('{{statusChangeSoundFile}}', '{{statusChangeSoundVolume}}')
     taskStatusImg.classList.add('pulse-on-change');
-  }
 
+    playAudio('{{statusChangeSoundFile}}', '{{statusChangeSoundVolume}}');
+  }
 }
+
 
 function updateProgressBar(value,tasksUntilNextStage) {
   const barBackground = document.getElementById('taskStatusBarBackground');
